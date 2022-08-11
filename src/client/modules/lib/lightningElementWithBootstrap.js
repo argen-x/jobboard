@@ -1,12 +1,11 @@
-import { LightningElement } from 'lwc';
-
+import { LightningElement } from "lwc";
 export default class LightningElementWithBootstrap extends LightningElement {
-    constructor() {
+    constructor(){
         super()
-        const path = 'resources/css/bootstrap.min.css'
+        const path = '/resources/css/bootstrap.min.css'
         const styles = document.createElement('link')
-        styles.href = path
-        styles.rel = "stylesheet"
+        styles.href=path
+        styles.rel="stylesheet"
         this.template.appendChild(styles)
     }
 }
