@@ -1,3 +1,2 @@
-import { LightningElement } from 'lwc';
-
-export default class App extends LightningElement {}
+import LightningElementWithBootstrap from "../../lib/lightningElementWithBootstrap";
+export default class App extends LightningElementWithBootstrap {}
