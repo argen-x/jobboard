@@ -12,6 +12,14 @@ const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 3004;
 const DIST_DIR = './dist';
 
+app.use((req, res, next) => {
+    res.setHeader(
+        'Content-Security-Policy',
+        "script-src 'self' https://jobs.github.com",
+        "img-src 'self' https://jobs.github.com" 
+    )
+    return next()
+})
 app.use(express.static(DIST_DIR));
 
 app.use('*', (req, res) => {
