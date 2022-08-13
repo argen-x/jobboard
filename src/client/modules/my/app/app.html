@@ -1,7 +1,7 @@
 <template>
     <my-navbar> </my-navbar>
     <template if:true={selectedJob}>
-        <my-job-description></my-job-description>
+        <my-job-description selectedjob={selectedJob}></my-job-description>
     </template>
     <template if:false={selectedJob}>
         <my-search-box></my-search-box>
@@ -12,7 +12,7 @@
                 </div>
                 <template for:each={jobs} for:item="job">
                     <div class="col-sm-4 mb-3" key={job.id}>
-                        <my-jobcard job={job} onselect={sss}></my-jobcard>
+                        <my-jobcard job={job} onselect={selectedHandler}></my-jobcard>
                     </div>
                 </template>
             </div>

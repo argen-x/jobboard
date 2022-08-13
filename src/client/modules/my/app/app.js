@@ -7,7 +7,7 @@ export default class App extends LightningElementWithBootstrap {
     description = ''
     location = ''
     full_time = false
-    selectedJob = false
+    selectedJob = null
 
     jobs = [
         {
@@ -660,7 +660,11 @@ export default class App extends LightningElementWithBootstrap {
           "how_to_apply": "<p>Email your resume to Laurence at <a href=\"mailto:lc@avomd.io\">lc@avomd.io</a></p>\n",
           "company_logo": "https://jobs.github.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdFNVIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e8987daa090e02cb2c7aae43336eb78bc49219f0/Green%20algo%20black%20text%20logo.png"
         }
-      ]
+    ]
+
+  selectedHandler(event) {
+      this.selectedJob = event.detail
+    }
 
     // connectedCallback() {
     //     this.fetchJobs();
