@@ -1,5 +1,5 @@
 <template>
-    <my-navbar> </my-navbar>
+    <my-navbar show-btn={selectedJob} onback={goBackHandler}> </my-navbar>
     <template if:true={selectedJob}>
         <my-job-description selectedjob={selectedJob}></my-job-description>
     </template>
@@ -12,7 +12,7 @@
                 </div>
                 <template for:each={jobs} for:item="job">
                     <div class="col-sm-4 mb-3" key={job.id}>
-                        <my-jobcard job={job} onselect={selectedHandler}></my-jobcard>
+                        <my-jobcard job={job} onselected={selectedHandler}></my-jobcard>
                     </div>
                 </template>
             </div>

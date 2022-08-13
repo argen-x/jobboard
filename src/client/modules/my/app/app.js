@@ -663,8 +663,12 @@ export default class App extends LightningElementWithBootstrap {
     ]
 
   selectedHandler(event) {
-      this.selectedJob = event.detail
+    this.selectedJob = event.detail
     }
+
+  goBackHandler() {
+    this.selectedJob = null
+  }
 
     // connectedCallback() {
     //     this.fetchJobs();

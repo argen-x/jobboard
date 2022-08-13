@@ -5,7 +5,7 @@ import {dateFormatter} from '../../utils/utils'
 
 export default class JobDescription extends LightningElementWithBootstrap {
 
-    _selectedjob
+    _selectedjob = {}
 
     isLoaded = false
     get logoImage() {
@@ -13,15 +13,16 @@ export default class JobDescription extends LightningElementWithBootstrap {
     }
 
     get formattedDate() {
-        return dateFormatter(this.selectedJob.created_at)
+        return dateFormatter(this.selectedjob.created_at)
     }
 
-    @api get selectedJob() {
+    @api get selectedjob() {
         return this._selectedjob 
     }
 
-    set selectedJob(value) {
-        this._selectedjob = {...value}
+    set selectedjob(value) {
+        const applyUrl = this.getApplyUrl(value.how_to_apply)
+        this._selectedjob = {...value, applyUrl}
     }
     
     renderedCallback() {
@@ -29,12 +30,23 @@ export default class JobDescription extends LightningElementWithBootstrap {
             return 
         } 
             let jobdescription = this.template.querySelector('.jobdescription')
-            if (this.selectedJob.description) {
+            if (this.selectedjob.description) {
                 // eslint-disable-next-line @lwc/lwc/no-inner-html
-                jobdescription.innerHTML = this.selectedJob.description
+                jobdescription.innerHTML = this.selectedjob.description
                 this.isLoaded = true
             }
         
+    }
+
+    getApplyUrl(str) {
+        let url = ''
+        str.split('href="').forEach(item => {
+            if (item.startsWith("https") || item.startsWith("mailto")) {
+                console.log(url)
+                url = item.split('">')[0]
+            }
+        })
+        return url
     }
 
 

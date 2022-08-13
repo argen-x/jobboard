@@ -6,11 +6,11 @@
             </div>
             <div class="col-12 col-sm-7">
                 <div class="col-12 col-sm-7 text-center mt-2 mb-2">
-                    <h3>{selectedJob.company}</h3>
+                    <h3>{selectedjob.company}</h3>
                 </div>
             </div>
             <div class="col-12 col-sm-3">
-                <a href={selectedJob.company_url} target="_blank" class="btn btn-outline-dark" role="button">
+                <a href={selectedjob.company_url} target="_blank" class="btn btn-outline-dark" role="button">
                     Company Website
                 </a>
             </div>
@@ -20,11 +20,12 @@
                 <p class="text-secondary">Posted On: {formattedDate}</p>
             </div>
             <div class="col-12 col-sm-4 text-right">
-                <a href="" target="_blank" class="btn customButton btn-lg" role="button">Apply Now!</a>
+                <a href={selectedjob.applyUrl} target="_blank" class="btn customButton btn-lg" role="button">Apply
+                    Now!</a>
             </div>
             <div class="col-12 mb-3">
-                <h3>{selectedJob.title}</h3>
-                <p><span class="badge badge-info">{selectedJob.type}</span></p>
+                <h3>{selectedjob.title}</h3>
+                <p><span class="badge badge-info">{selectedjob.type}</span></p>
             </div>
             <div class="col-12">
                 <div class="jobdescription" lwc:dom="manual">
